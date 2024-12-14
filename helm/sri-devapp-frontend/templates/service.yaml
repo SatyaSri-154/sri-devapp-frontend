@@ -11,9 +11,9 @@ spec:
       targetPort: http
       protocol: TCP
       name: http   
-    - port: {{ .Values.service.port }}
-      protocol: TCP
-      targetPort: https
-      name: https
+    #- port: {{ .Values.service.port }}
+      #protocol: TCP
+      #targetPort: https
+      #name: https
   selector:
     {{- include "sri-devapp-frontend.selectorLabels" . | nindent 4 }}
