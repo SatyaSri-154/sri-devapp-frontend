@@ -1,12 +1,12 @@
 pipeline {
-   agent {label 'build-node'}
+   agent {label 'slavenode-13'}
    environment {
        // scannerHome = tool "SonarScanner"
-        REGISTRY_URL="nexus.sri.devapp.com:7777"
-        REPO_NAME="sri-devapp-repo"
+        REGISTRY_URL="lakshmisatya"
+        REPO_NAME="lakshmisatya"
         IMAGE_NAME="sri-devapp-frontend"
         IMAGE_TAG="latest"
-        HELM_REPO="https://nexus.sri.devapp.com/repository"
+        //HELM_REPO="https://nexus.sri.devapp.com/repository"
         HELM_CHART="sri.devapp-helm"
     }
 
@@ -32,7 +32,7 @@ pipeline {
         stage('Login to Nexus Repo') {
             steps {
             script {
-                sh "docker login -u admin -p admin ${REGISTRY_URL}"
+                sh "docker login ${REGISTRY_URL}"
             }
         }
     }
@@ -57,7 +57,8 @@ pipeline {
               script {  
                  echo "Packing helm chart"
                  sh "helm package -d ${WORKSPACE}/helm ${WORKSPACE}/helm/sri-devapp-frontend"
-                 sh "curl -u admin:admin ${HELM_REPO}/${HELM_CHART} --upload-file ${WORKSPACE}/helm/sri-devapp-frontend-1.0.0.tgz -v"          
+		 sh "helm install myfrontend ${WORKSPACE}/helm/sri-devapp-frontend"
+                 //sh "curl -u admin:admin ${HELM_REPO}/${HELM_CHART} --upload-file ${WORKSPACE}/helm/sri-devapp-frontend-1.0.0.tgz -v"          
             }
          }
       }
