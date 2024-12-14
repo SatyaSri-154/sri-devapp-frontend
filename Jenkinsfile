@@ -32,7 +32,7 @@ pipeline {
         stage('Login to Nexus Repo') {
             steps {
             script {
-                sh "docker login ${REGISTRY_URL}"
+                sh "docker login"
             }
         }
     }
