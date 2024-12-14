@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nexus.sri.devapp.com:7777/sri-devapp-frontend
+  repository: lakshmisatya/sri-devapp-frontend
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
