@@ -5,7 +5,7 @@ pipeline {
         REGISTRY_URL="lakshmisatya"
         REPO_NAME="lakshmisatya"
         IMAGE_NAME="sri-devapp-frontend"
-        IMAGE_TAG="latest"
+        IMAGE_TAG="prod"
         //HELM_REPO="https://nexus.sri.devapp.com/repository"
         HELM_CHART="sri.devapp-helm"
     }
