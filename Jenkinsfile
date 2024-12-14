@@ -57,7 +57,7 @@ pipeline {
               script {  
                  echo "Packing helm chart"
                  sh "helm package -d ${WORKSPACE}/helm ${WORKSPACE}/helm/sri-devapp-frontend"
-		 sh "helm install myfrontend ${WORKSPACE}/helm/sri-devapp-frontend-1.0.0.tgz"
+		 sh "helm upgrade --install myfrontend ${WORKSPACE}/helm/sri-devapp-frontend-1.0.0.tgz -n frontend"
                  //sh "curl -u admin:admin ${HELM_REPO}/${HELM_CHART} --upload-file ${WORKSPACE}/helm/sri-devapp-frontend-1.0.0.tgz -v"          
             }
          }
