@@ -27,7 +27,7 @@
             echo "<div class='form'>
             <h2>Wel Come DevOps Odia</h2><br/>
             <h3>Successfully Login</h3><br/>
-            <p class='link'>Click here to <a href='http://10.10.0.10:30001/sridevapp/'>DevOps Odia Main Page</a></p>
+            <p class='link'>Click here to <a href='http://10.0.0.20:30001/sridevapp/'>DevOps Odia Main Page</a></p>
             </div>";
         } else {
             echo "<div class='form'>
